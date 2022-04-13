@@ -11,9 +11,9 @@ async def workout_get(req: models.WorkoutGetRequest):
     if date != '2022-04-12':
         return {}
 
-    return {'workouts': [
+    return {'exercises': [
         {
-            'exercise': 'Bench',
+            'exercise_name': 'Bench',
             'sets': [{
                 'weight': 70,
                 'reps': 6,

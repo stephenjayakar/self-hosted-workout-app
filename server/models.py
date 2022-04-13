@@ -5,22 +5,21 @@ class WorkoutGetRequest(BaseModel):
     date: str
 
 
-class WorkoutSet(BaseModel):
+class ExerciseSet(BaseModel):
     weight: int = Field(
         gt=0
     )
     reps: int = Field(
         gt=0
     )
-    failed: bool | None = False
+    failed: bool = False
 
 
-class Workout(BaseModel):
-    exercise: str
-    sets: list[WorkoutSet]
+class Exercise(BaseModel):
+    exercise_name: str
+    sets: list[ExerciseSet]
 
 
+# Can possibly include more metadata later for a workout.
 class WorkoutGetResponse(BaseModel):
-    workouts: list[Workout]
-
-
+    exercises: list[Exercise]
