@@ -5,28 +5,6 @@ I didn't really like using existing workout apps for a couple of reasons:
 * Ads or some type of monetisation strategy. Don't like that
 * Weird UX experiences.
 
-# API
+# Architecture
 
-## `POST /workout/get`
-### Request
-```json
-{
-  "date": "YYYY-MM-DD"
-}
-```
-### Response
-```json
-{
-  workouts: [
-    {
-      "exercise": "Bench"
-      "sets": [
-        {
-          "weight": uint,
-          "reps": uint,
-        }
-      ]
-    }
-  }
-}
-```
+I'm using Convex lol. ignore the server folder for now.
