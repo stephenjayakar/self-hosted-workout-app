@@ -5,16 +5,16 @@ import Button from '@mui/material/Button'
 
 export default function App() {
   const insertWorkout = useMutation("insertWorkout");
-  function onClick() {
-    data.workouts.forEach((workout: object) => {
-        console.log(workout);
-      insertWorkout(workout);
-    })
+  function onClick(workout: object) {
+    insertWorkout(workout);
+    console.log(workout)
   }
 
   return (
     <main>
-      <Button variant="contained" onClick={() => onClick()}>Seed data</Button>
+      {data.workouts.map((workout: object) => (
+        <p><Button variant="contained" onClick={() => onClick(workout)}>Send {workout.date}</Button></p>
+      ))}
     </main>
   );
 }
