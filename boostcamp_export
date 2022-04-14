@@ -1,0 +1,763 @@
+# Boostcamp export
+# day 1
+day: 2021-11-01
+exercise: Squat
+- 65x6
+- 75x7
+- 95x2
+- 110x3
+- 110x2
+- 110x3
+- 110x3
+- 110x6
+exercise: Bench
+- 70x6
+- 80x4
+- 90x2
+- 65x10
+- 65x5
+- 65x5
+exercise: Lat Pulldown
+- 10x15
+- 27.5x15
+- 20x35
+
+# day 2
+day: 2021-11-03
+exercise: OHP
+- 30x6
+- 30x6
+- 40x2
+- 45x3
+- 45x3
+- 45x5
+- 45x3
+- 45x11
+exercise: Deadlift
+- 65x8
+- 65x6
+- 65x3
+- 65x4
+- 65x10
+- 65x10
+exercise: Dumbbell Row
+- 12.5x15
+- 12.5x15
+- 12.5x10
+
+# day 3
+day: 2021-11-05
+exercise: Bench
+- 50x6
+- 55x4
+- 70x2
+- 80x3
+- 80x3
+- 80x3
+- 80x3
+- 80x4
+exercise: Squat
+- 55x8
+- 65x6
+- 75x3
+- 90x10
+- 90x10
+- 90x10
+exercise: Lat Pulldown
+- 40x15
+- 55x15
+- 55x20
+
+# day 4
+day: 2021-11-07
+exercise: Deadlift
+- 65x4
+- 65x6
+- 65x6
+- 95x3
+- 95x3
+- 95x3
+- 95x3
+- 95x3
+exercise: OHP
+- 40x8
+- 40x6
+- 40x3
+- 50x10
+- 50x10
+- 50x6
+exercise: Dumbbell Row
+- 12.5x15
+- 12.5x15
+- 12.5x15
+
+# day 5
+day: 2021-11-09
+exercise: Squat
+- 65x6
+- 85x4
+- 100x2
+- 120x3
+- 120x3
+- 120x3
+- 120x3
+- 120x5
+exercise: Bench
+- 45x8
+- 45x6
+- 55x3
+- 65x8
+- 65x8
+- 65x10
+
+# day 6
+day: 2021-11-15
+exercise: OHP
+- 45x6
+- 45x4
+- 45x2
+- 55x3
+- 55x3
+- 50x3
+- 50x3
+- 50x6
+exercise: Deadlift
+- 90x8
+- 90x6
+- 90x3
+- 90x8
+- 90x8
+- 90x5
+exercise: Dumbbell Row
+- 15x15
+- 15x15
+- 15x5
+
+# day 7
+day: 2021-11-16
+exercise: Bench
+- 45x6
+- 55x4
+- 70x3
+- 85x3
+- 85x3
+- 85x3
+- 85x3
+- 85x3
+exercise: Squat
+- 55x8
+- 65x6
+- 80x3
+- 95x10
+- 95x10
+- 95x10
+exercise: Lat Pulldown
+- 55x15
+- 70x15
+- 70x19
+
+# day 8
+day: 2021-11-23
+exercise: Deadlift
+- 60x6
+- 90x4
+- 90x2
+- 110x3
+- 110x3
+- 110x3
+- 110x3
+- 110x6
+exercise: OHP
+- 45x8
+- 50x6
+- 50x3
+- 50x6
+exercise: Dumbbell Row
+- 15x15
+- 15x15
+- 15x25
+
+# day 9 week 3 day 1
+day: 2021-11-24
+exercise: Squat
+- 80x6
+- 90x4
+- 110x2
+- 130x3
+- 130x3
+- 130x3
+- 130x3
+- 130x3
+exercise: Bench
+- 45x8
+- 50x6
+- 60x3
+- 70x8
+- 70x8
+- 75x8
+exercise: Lat Pulldown
+- 70x15
+- 75x15
+- 75x15
+
+# day 10
+day: 2021-11-27
+exercise: OHP
+- 40x6
+- 40x4
+- 45x2
+- 55x3
+- 55x3
+- 60x3
+- 60x3
+- 60x7
+exercise: Deadlift
+- 65x8
+- 95x6
+- 115x3
+- 115x6
+- 115x6
+- 115x6
+exercise: Dumbbel Row
+- 17.5x15
+- 17.5x15
+- 17.5x15
+
+# day 11
+day: 2021-11-29
+exercise: Bench
+- 55x6
+- 65x4
+- 75x2
+- 90x3
+- 90x3
+- 90x3
+- 90x3
+- 90x4
+exercise: Squat
+- 70x8
+- 80x6
+- 100x3
+- 100x10
+- 100x10
+- 100x10
+exercise: Lat Pulldown
+- 70x15
+- 75x15
+- 75x15
+
+# day 12
+day: 2021-12-07
+exercise: Deadlift
+- 95x6
+- 115x4
+- 115x2
+- 135x3
+- 155x3
+- 155x3
+- 155x3
+- 155x5
+exercise: OHP
+- 45x8
+- 55x6
+- 55x3
+- 70x6
+- 70x3
+- 55x6
+exercise: Dumbbell Row
+- 20x15
+- 20x15
+- 20x15
+
+# day 13
+day: 2021-12-08
+exercise: Squat
+- 85x6
+- 100x4
+- 120x2
+- 140x3
+- 140x3
+- 140x3
+- 140x3
+- 140x5
+exercise: Bench
+- 45x8
+- 55x6
+- 65x3
+- 75x8
+- 75x8
+- 75x7
+exercise: Lat Pulldown
+- 75x15
+- 85x15
+- 85x16
+
+day: 2021-12-14
+exercise: OHP
+- 40x6
+- 50x4
+- 50x2
+- 60x3
+- 60x3
+- 60x3
+- 60x3
+- 60x8
+exercise: Deadlift
+- 65x8
+- 75x6
+- 95x3
+- 95x6
+- 105x6
+- 115x6
+exercise: Dumbbell Row
+- 17.5x15
+- 17.5x15
+- 17.5x20
+
+day: 2021-12-23
+exercise: Bench
+- 55x6
+- 65x4
+- 80x2
+- 95x3
+- 95x3
+- 95x3
+- 95x3
+- 95x3
+exercise: Squat
+- 65x8
+- 75x6
+- 90x3
+- 105x10
+- 105x10
+- 105x10
+
+day: 2021-12-28
+exercise: Deadlift
+- 65x6
+- 95x4
+- 115x2
+- 135x3
+- 135x3
+- 145x3
+- 155x3
+- 155x3
+exercise: OHP
+- 45x8
+- 55x6
+- 65x3
+- 65x10
+- 65x2
+exercise: Dumbbell Row
+- 20x15
+- 25x15
+- 25x17
+
+# on week 5 day 1
+day: 2021-12-30
+exercise: Squat
+- 90x6
+- 105x4
+- 130x2
+- 160x3
+- 160x3
+- 160x3
+- 160x1
+exercise: Bench
+- 45x8
+- 55x6
+- 65x3
+- 75x6
+- 75x6
+- 75x8
+exercise: Lat Pulldown
+- 85x15
+- 85x15
+- 85x15
+
+day: 2022-01-02
+exercise: OHP
+- 45x6
+- 45x4
+- 55x2
+- 65x3
+- 65x3
+- 65x3
+- 65x3
+- 65x6
+exercise: Deadlift
+- 95x8
+- 115x6
+- 115x3
+- 135x6
+- 135x6
+- 135x6
+exercise: Dumbbell Row
+- 20x15
+- 20x15
+- 20x20
+
+day: 2022-01-05
+exercise: Bench
+- 60x6
+- 70x4
+- 85x2
+- 100x3
+- 100x3
+- 100x3
+- 100x3
+- 100x3
+exercise: Squat
+- 65x8
+- 75x6
+- 95x3
+- 110x10
+- 110x10
+- 110x10
+exercise: Lat Pulldown
+- 70x15
+- 80x15
+- 85x20
+
+day: 2022-01-08
+exercise: Deadlift
+- 65x6
+- 115x4
+- 135x2
+- 155x3
+- 155x3
+- 155x3
+- 155x3
+- 155x3
+exercise: OHP
+- 45x8
+- 55x6
+- 55x3
+- 55x8
+- 55x8
+- 55x8
+exercise: Dumbbell Row
+- 27.5x15
+- 27.5x15
+- 27.5x15
+exercise: Bicep Curls
+- 15x15
+- 15x8
+- 12.5x11
+
+day: 2022-01-11
+exercise: Squat
+- 95x6
+- 135x4
+- 135x2
+- 160x2
+- 160x2
+- 160x2
+- 160x2
+- 160x2
+- 160x5
+exercise: Bench
+- 50x8
+- 55x6
+- 70x3
+- 80x6
+- 80x6
+- 80x12
+exercise: Lat Pulldown
+- 85x15
+- 85x15
+- 85x15
+exercise: Tricep Pushdowns
+- 20x15
+- 25x15
+- 25x15
+
+day: 2022-01-17
+exercise: OHP
+- 45x6
+- 50x4
+- 60x2
+- 70x3
+- 70x3
+- 70x3
+- 70x3
+- 70x5
+exercise: Deadlift
+- 65x8
+- 95x6
+- 115x3
+- 115x6
+- 115x6
+- 115x6
+exercise: Dumbbell Row
+- 20x15
+- 25x15
+- 25x15
+exercise: Bicep Curls
+- 15x12
+- 15x12
+- 15x11
+
+day: 2022-01-19
+exercise: Bench
+- 65x6
+- 75x4
+- 90x2
+- 105x3
+- 105x3
+- 105x3
+- 105x3
+- 105x3
+exercise: Squat
+- 70x8
+- 80x6
+- 100x3
+- 115x10
+- 115x10
+- 115x10
+exercise: Lat Pulldown
+- 70x15
+- 85x15
+- 85x16
+
+day: 2022-01-24
+exercise: Deadlift
+- 95x6
+- 115x4
+- 135x2
+- 165x3
+- 165x3
+- 165x3
+- 165x3
+- 165x4
+exercise: OHP
+- 45x8
+- 45x6
+- 55x3
+- 60x8
+- 60x8
+- 60x8
+exercise: Dumbbell Row
+- 27.5x15
+- 30x15
+- 30x16
+exercise: Bicep Curls
+- 15x10
+- 15x10
+- 15x12
+
+day: 2022-01-30
+exercise: Squat
+- 95x6
+- 110x4
+- 135x2
+- 165x2
+- 165x2
+- 165x2
+- 165x2
+- 165x2
+- 165x2
+exercise: Bench
+- 50x8
+- 60x6
+- 70x3
+- 85x6
+- 85x6
+- 85x6
+exercise: Lat Pulldown
+- 85x15
+- 100x10
+- 100x10
+
+day: 2022-01-31
+exercise: OHP
+- 45x6
+- 55x4
+- 65x2
+- 75x3
+- 75x3
+- 75x3
+- 75x3
+- 75x3
+exercise: Deadlift
+- 95x3
+- 95x8
+- 115x6
+- 125x6
+- 125x6
+- 125x6
+exercise: Dumbbell Row
+- 20x15
+- 25x15
+- 25x15
+
+day: 2022-02-02
+exercise: Bench
+- 65x6
+- 75x4
+- 95x2
+- 110x3
+- 110x3
+- 110x3
+- 110x3
+- 110x3
+exercise: Squat
+- 85x8
+- 85x6
+- 100x3
+- 120x10
+- 120x10
+- 120x10
+exercise: Lat Pulldown
+- 85x15
+- 85x15
+- 85x15
+exercise: Tricep Pushdowns
+- 25x15
+- 30x14
+- 20x14
+- 20x14
+
+day: 2022-02-07
+exercise: Deadlift
+- 95x6
+- 115x4
+- 135x2
+- 175x3
+- 175x3
+- 175x3
+- 175x3
+- 175x4
+exercise: OHP
+- 45x8
+- 45x6
+- 55x3
+- 65x8
+- 65x7
+- 65x4
+exercise: Dumbbell Row
+- 20x15
+- 20x15
+- 20x15
+exercise: Bicep Curls
+- 15x10
+- 15x10
+- 15x10
+
+day: 2022-02-08
+exercise: Squat
+- 100x6
+- 120x4
+- 145x2
+- 170x2
+- 170x2
+- 170x2
+- 170x2
+- 170x2
+- 170x3
+exercise: Bench
+- 55x8
+- 65x6
+- 100x3
+- 90x6
+- 90x6
+- 90x6
+exercise: Lat Pulldown
+- 85x15
+- 100x8
+- 90x10
+
+day: 2022-02-21
+exercise: OHP
+- 45x6
+- 55x4
+- 70x2
+- 70x3
+- 75x3
+- 75x3
+- 75x3
+- 75x5
+exercise: Deadlift
+- 65x8
+- 95x6
+- 95x3
+- 135x6
+- 135x6
+- 135x6
+exercise: Cable Row
+- 70x15
+- 85x15
+- 85x15
+exercise: Bicep Curls
+- 15x10
+- 15x10
+- 15x12
+
+day: 2022-02-24
+exercise: Bench
+- 70x6
+- 80x4
+- 100x2
+- 105x3
+- 105x3
+- 105x3
+- 105x3
+- 105x3
+exercise: Squat
+- 75x8
+- 90x8
+- 105x3
+- 125x10
+- 125x10
+- 125x10
+exercise: Lat Pulldown
+- 85x15
+- 90x15
+- 90x15
+
+day: 2022-02-28
+exercise: Deadlift
+- 95x6
+- 115x4
+- 165x2
+- 175x3
+- 175x3
+- 175x3
+- 175x3
+- 175x3
+exercise: OHP
+- 45x8
+- 45x6
+- 55x3
+- 65x6
+- 65x6
+- 65x6
+exercise: Cable Row
+- 70x5
+- 100x5
+- 100x5
+- 100x5
+- 100x5
+
+day: 2022-03-08
+exercise: Squat
+- 110x6
+- 125x4
+- 155x2
+- 180x2
+- 180x2
+- 180x2
+- 180x2
+- 180x2
+- 180x2
+exercise: Bench
+- 55x8
+- 65x6
+- 80x3
+- 95x6
+- 95x6
+- 95x6
+exercise: Lat Pulldown
+- 85x15
+- 90x15
+- 90x15

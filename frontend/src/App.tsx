@@ -1,9 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Button from '@mui/material/Button'
+import Button from '@mui/material/Button';
+import { data } from './seed-data';
+import { useMutation } from '../convex/_generated';
 
 function App() {
+  const insertWorkout = useMutation('insertWorkout');
+    function handleClick() {
+        // for now insert only one workout
+        const workout = data.workouts[0]
+        insertWorkout(workout)
+        /* data.workouts.map((workout) => {
+      *   // Insert it into Convex?
+      *   console.log(workout);
+      * }); */
+    }
   return (
     <div className="App">
       <header className="App-header">
@@ -19,7 +31,10 @@ function App() {
         >
           Learn React
         </a>
-        <Button variant="contained">Hello world</Button>
+        <Button
+          variant="contained"
+          onClick={() => handleClick()}
+        >Seed Convex Data</Button>
       </header>
     </div>
   );

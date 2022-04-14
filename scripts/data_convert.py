@@ -16,6 +16,7 @@ for line in lines:
         continue
     # starting a new day
     if 'day' in line:
+        # print(line)
         date = line.split('day: ')[1].strip()
         return_dict['workouts'].append({
             'date': date,
