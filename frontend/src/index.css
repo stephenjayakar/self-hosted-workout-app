@@ -1,13 +1,29 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+main {
+  width: min(800px, 95vw);
+  margin: 0 auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.list-group-item:hover {
+  background: #f8f9fa;
+}
+
+.channel-item:hover {
+  background: #f8f9fa;
+  color: black;
+  cursor: pointer;
+}
+
+.main-content {
+  display: flex;
+}
+
+.channel-box {
+  flex-grow: 0;
+  margin-right: 1em;
+}
+
+.chat-box {
+  flex-grow: 1;
 }
