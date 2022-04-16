@@ -1,6 +1,6 @@
 import { Id } from 'convex-dev/values';
 
-interface Workout {
+export interface Workout {
   date: string;
   exercises: [Exercise];
 }
@@ -10,12 +10,12 @@ export interface WorkoutConvexResponse extends Workout {
 }
 
 
-interface Exercise {
+export interface Exercise {
   exercise_name: string;
   sets: [ExerciseSet];
 }
 
-interface ExerciseSet {
+export interface ExerciseSet {
   weight: number;
   reps: number;
   failed: boolean;

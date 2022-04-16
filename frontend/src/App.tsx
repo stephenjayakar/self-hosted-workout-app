@@ -13,13 +13,15 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import './models';
+import {
+  Workout,
+  WorkoutConvexResponse,
+} from './models';
 
 export default function App() {
   // const insertWorkout = useMutation("insertWorkout");
   // TODO: Get the Convex Workout response instead
-  const workouts: [Workout] = useQuery("getWorkouts") ?? [];
-  console.log(workouts);
+  const workouts: [WorkoutConvexResponse] = useQuery("getWorkouts") ?? [];
 
   return (
     <main>
@@ -47,22 +49,6 @@ function WorkoutCard(props: { key: string, workout: Workout }) {
     </Card>
   );
 }
-
-/* function WorkoutComponent(props: { workout: Workout }) {
-*     const workout = props.workout
-*     return (
-*         <div>
-*             {workout.exercises.map((e: Exercise) => (
-*                 <div>
-*                     <p>{e.exercise_name}</p>
-*                     {e.sets.map((s => (
-*                         <p>  {s.weight}x{s.reps} {s.failed ? 'failed' : ''}</p>
-*                     )))}
-*                 </div>
-*             ))}
-*         </div>
-*     );
- * } */
 
 // TODO: copied from material example
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
