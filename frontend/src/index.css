@@ -1,7 +1,7 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 main {
-  width: min(800px, 95vw);
+  width: min(500px, 95vw);
   margin: 0 auto;
 }
 
