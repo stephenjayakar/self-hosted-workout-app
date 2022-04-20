@@ -73,7 +73,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 function WorkoutComponent(props: { workout: Workout }) {
   const workout: Workout = props.workout;
-  return workout.exercises.map(e => (
+  return (
+    <div>{workout.exercises.map(e => (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }} aria-label="customized table">
         <TableHead>
@@ -85,7 +86,7 @@ function WorkoutComponent(props: { workout: Workout }) {
         </TableHead>
         <TableBody>
           {e.sets.map((s) => (
-            <StyledTableRow key={s.exercise_name}>
+            <StyledTableRow key={e.exercise_name}>
               <StyledTableCell component="th" scope="row">
                 {/*e.exercise_name*/}
               </StyledTableCell>
@@ -100,5 +101,8 @@ function WorkoutComponent(props: { workout: Workout }) {
         </TableBody>
       </Table>
     </TableContainer>
-  ));
+    ))}
+      </div>
+    );
+
 }
