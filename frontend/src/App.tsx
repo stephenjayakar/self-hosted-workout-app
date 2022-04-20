@@ -45,64 +45,41 @@ function WorkoutCard(props: { key: string, workout: Workout }) {
       >
         {(!showWorkout ? 'Show workout ' : 'Hide workout ') + workout.date}
       </Button>
-      {showWorkout ? (<WorkoutComponent workout={workout} />) : <div />}
+      {showWorkout ? (<WorkoutTable workout={workout} />) : <div />}
     </Card>
   );
 }
 
-// TODO: copied from material example
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
-
-function WorkoutComponent(props: { workout: Workout }) {
+function WorkoutTable(props: { workout: Workout }) {
   const workout: Workout = props.workout;
   return (
-    <div>{workout.exercises.map(e => (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>{e.exercise_name}</StyledTableCell>
-            <StyledTableCell align="right">Weight</StyledTableCell>
-            <StyledTableCell align="right">Reps</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {e.sets.map((s) => (
-            <StyledTableRow key={e.exercise_name}>
-              <StyledTableCell component="th" scope="row">
-                {/*e.exercise_name*/}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {s.weight}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {s.reps}
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div className="WorkoutTable">{workout.exercises.map(e => (
+      <>
+        <h1>{e.exercise_name}</h1>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 200 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="right">Weight</TableCell>
+                <TableCell align="right">Reps</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {e.sets.map((s, i) => (
+                <TableRow key={e.exercise_name + i}>
+                  <TableCell align="right">
+                    {s.weight}
+                  </TableCell>
+                  <TableCell align="right">
+                    {s.reps}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </>
     ))}
-      </div>
-    );
-
+    </div>
+  );
 }
