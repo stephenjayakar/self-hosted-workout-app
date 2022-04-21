@@ -2,16 +2,21 @@ import { useState } from 'react';
 
 import { useQuery, useMutation } from "../convex/_generated";
 
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import {
+  Box,
+  Button,
+  Card,
+  Grid,
+  TextField,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from '@mui/material';
+
 
 import {
   Workout,
@@ -25,7 +30,25 @@ export default function App() {
 
   return (
     <main>
-      <p>All your workouts</p>
+      <h1>Workouts</h1>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            <TextField
+              id="outlined-basic"
+              label="Date"
+              variant="outlined"
+              placeholder="YYYY-MM-DD"
+              type="date"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <Button>Create workout</Button>
+          </Grid>
+        </Grid>
+      </Box>
+
       {workouts.map(workout => (
         <WorkoutCard key={workout.date} workout={workout} />
       ))}
