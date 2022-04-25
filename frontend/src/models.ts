@@ -1,4 +1,4 @@
-import { Id } from 'convex-dev/values';
+import { Id } from "convex-dev/values";
 
 export interface Workout {
   date: string;
@@ -8,7 +8,6 @@ export interface Workout {
 export interface WorkoutConvexResponse extends Workout {
   _id: Id;
 }
-
 
 export interface Exercise {
   exercise_name: string;
