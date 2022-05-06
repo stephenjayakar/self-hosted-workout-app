@@ -1,19 +1,8 @@
-import { useQuery, useMutation } from "../convex/_generated";
+import { useQuery } from "../convex/_generated";
 
-import {
-  Box,
-  Button,
-  Card,
-  Grid,
-  TextField,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-} from "@mui/material";
+import { useState } from "react";
+
+import { Box, Button, Grid, TextField } from "@mui/material";
 
 import { WorkoutConvexResponse } from "./models";
 import WorkoutCard from "./WorkoutCard";
@@ -21,7 +10,16 @@ import WorkoutCard from "./WorkoutCard";
 export default function App() {
   // const insertWorkout = useMutation('insertWorkout');
   // TODO: Get the Convex Workout response instead
+
+  const [newWorkoutDate, setNewWorkoutDate] = useState("");
   const workouts: [WorkoutConvexResponse] = useQuery("getWorkouts") ?? [];
+
+  const handleDateChange = (event: any) => {
+    event.preventDefault();
+    const isoDate = event.target.value;
+    // TODO: validate
+    setNewWorkoutDate(isoDate);
+  };
 
   return (
     <main>
@@ -35,6 +33,7 @@ export default function App() {
               variant="outlined"
               placeholder="YYYY-MM-DD"
               type="date"
+              onChange={handleDateChange}
               fullWidth
             />
           </Grid>
