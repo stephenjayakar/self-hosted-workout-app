@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useMutation } from "../convex/_generated";
+
 import {
   Button,
   Card,
@@ -13,11 +15,20 @@ import {
   Paper,
 } from "@mui/material";
 
-import { Workout } from "./models";
+import {
+  Workout,
+  WorkoutConvexResponse,
+} from "./models";
 
-export default function WorkoutCard(props: { key: string; workout: Workout }) {
+export default function WorkoutCard(props: { key: string; workout: WorkoutConvexResponse }) {
+  const removeWorkout = useMutation('removeWorkout');
+
   const workout = props.workout;
   const [showWorkout, setShowWorkout] = useState(false);
+
+  const removeWorkoutButtonClicked = (e: any) => {
+    removeWorkout(workout._id)
+  }
 
   return (
     <Card>
@@ -29,6 +40,9 @@ export default function WorkoutCard(props: { key: string; workout: Workout }) {
       >
         {(!showWorkout ? "Show workout " : "Hide workout ") + workout.date}
       </Button>
+      <Button
+        onClick={removeWorkoutButtonClicked}
+      >Remove workout</Button>
       {showWorkout ? (
         <>
           <WorkoutTable workout={workout} />
