@@ -15,20 +15,26 @@ import {
   Paper,
 } from "@mui/material";
 
-import {
-  Workout,
-  WorkoutConvexResponse,
-} from "./models";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function WorkoutCard(props: { key: string; workout: WorkoutConvexResponse }) {
-  const removeWorkout = useMutation('removeWorkout');
+import { Workout, WorkoutConvexResponse } from "./models";
+
+// Component states:
+// - Toggling showing the workout information
+// - Pressing the remove button, but not pressing the confirm button
+export default function WorkoutCard(props: {
+  key: string;
+  workout: WorkoutConvexResponse;
+}) {
+  const removeWorkout = useMutation("removeWorkout");
 
   const workout = props.workout;
   const [showWorkout, setShowWorkout] = useState(false);
+  const [removeButtonPressed, setRemoveButtonPressed] = useState(false);
 
-  const removeWorkoutButtonClicked = (e: any) => {
-    removeWorkout(workout._id)
-  }
+  const confirmRemoveWorkout = (e: any) => {
+    removeWorkout(workout._id);
+  };
 
   return (
     <Card>
@@ -40,9 +46,23 @@ export default function WorkoutCard(props: { key: string; workout: WorkoutConvex
       >
         {(!showWorkout ? "Show workout " : "Hide workout ") + workout.date}
       </Button>
-      <Button
-        onClick={removeWorkoutButtonClicked}
-      >Remove workout</Button>
+      {removeButtonPressed ? (
+        <Button
+          variant="contained"
+          color="error"
+          onClick={confirmRemoveWorkout}
+        >
+          Are you sure?
+        </Button>
+      ) : (
+        <Button
+          startIcon={<DeleteIcon />}
+          onClick={() => setRemoveButtonPressed(true)}
+        >
+          Remove workout
+        </Button>
+      )}
+
       {showWorkout ? (
         <>
           <WorkoutTable workout={workout} />
