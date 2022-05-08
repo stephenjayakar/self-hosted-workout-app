@@ -17,7 +17,7 @@ import {
 
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import { Workout, WorkoutConvexResponse } from "./models";
+import { WorkoutDay, WorkoutConvexResponse } from "./models";
 
 // Component states:
 // - Toggling showing the workout information
@@ -76,8 +76,8 @@ export default function WorkoutCard(props: {
   );
 }
 
-function WorkoutTable(props: { workout: Workout }) {
-  const workout: Workout = props.workout;
+function WorkoutTable(props: { workout: WorkoutDay }) {
+  const workout: WorkoutDay = props.workout;
   return (
     <div className="WorkoutTable">
       {workout.exercises.map((e) => (
@@ -109,6 +109,10 @@ function WorkoutTable(props: { workout: Workout }) {
   );
 }
 
+// TODO: add a mutation that allows us to insert a new workout per day
+
+// also, figure out how to handle that type of mutation vs. making an inner-workout
+// modification
 function AddWorkoutForm(props: any) {
   const [workoutName, setWorkoutName] = useState("");
   return (
@@ -120,6 +124,7 @@ function AddWorkoutForm(props: any) {
       />
       <Button
         onClick={() => {
+          // Mutation here.
           console.log(workoutName);
         }}
       >

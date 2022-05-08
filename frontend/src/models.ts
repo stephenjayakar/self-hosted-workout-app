@@ -1,11 +1,11 @@
 import { Id } from "convex-dev/values";
 
-export interface Workout {
+export interface WorkoutDay {
   date: string;
   exercises: Exercise[];
 }
 
-export interface WorkoutConvexResponse extends Workout {
+export interface WorkoutConvexResponse extends WorkoutDay {
   _id: Id;
 }
 
@@ -20,7 +20,7 @@ export interface ExerciseSet {
   failed: boolean;
 }
 
-export function NewWorkout(date: string): Workout {
+export function NewWorkout(date: string): WorkoutDay {
   // TODO: validate that it's a valid ISODate
   return {
     date,
