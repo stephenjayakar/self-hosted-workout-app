@@ -109,12 +109,22 @@ function WorkoutTable(props: { workout: Workout }) {
   );
 }
 
-// TODO: refactor this to use a form so that we don't have to have component state.
 function AddWorkoutForm(props: any) {
+  const [workoutName, setWorkoutName] = useState("");
   return (
     <>
-      <Input />
-      <Button>Add</Button>
+      <Input
+        onChange={(e: any) => {
+          setWorkoutName(e.target.value);
+        }}
+      />
+      <Button
+        onClick={() => {
+          console.log(workoutName);
+        }}
+      >
+        Add
+      </Button>
     </>
   );
 }
