@@ -64,11 +64,11 @@ export default function WorkoutCard(props: {
       )}
 
       {showWorkout ? (
-        <>
+        <div className="WorkoutTable">
           <WorkoutTable workout={workout} />
           <h2>Add exercise</h2>
           <AddExerciseForm />
-        </>
+        </div>
       ) : (
         <div />
       )}
@@ -79,7 +79,7 @@ export default function WorkoutCard(props: {
 function WorkoutTable(props: { workout: WorkoutDay }) {
   const workout: WorkoutDay = props.workout;
   return (
-    <div className="WorkoutTable">
+    <>
       {workout.exercises.map((e) => (
         <>
           <h1>{e.exercise_name}</h1>
@@ -105,7 +105,7 @@ function WorkoutTable(props: { workout: WorkoutDay }) {
           </TableContainer>
         </>
       ))}
-    </div>
+    </>
   );
 }
 
