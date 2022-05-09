@@ -66,8 +66,8 @@ export default function WorkoutCard(props: {
       {showWorkout ? (
         <>
           <WorkoutTable workout={workout} />
-          <h2>Add workout</h2>
-          <AddWorkoutForm />
+          <h2>Add exercise</h2>
+          <AddExerciseForm />
         </>
       ) : (
         <div />
@@ -113,19 +113,19 @@ function WorkoutTable(props: { workout: WorkoutDay }) {
 
 // also, figure out how to handle that type of mutation vs. making an inner-workout
 // modification
-function AddWorkoutForm(props: any) {
-  const [workoutName, setWorkoutName] = useState("");
+function AddExerciseForm(props: any) {
+  const [exerciseName, setExerciseName] = useState("");
   return (
     <>
       <Input
         onChange={(e: any) => {
-          setWorkoutName(e.target.value);
+          setExerciseName(e.target.value);
         }}
       />
       <Button
         onClick={() => {
           // Mutation here.
-          console.log(workoutName);
+          console.log(exerciseName);
         }}
       >
         Add

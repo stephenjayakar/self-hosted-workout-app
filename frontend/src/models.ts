@@ -11,7 +11,7 @@ export interface WorkoutConvexResponse extends WorkoutDay {
 
 export interface Exercise {
   exercise_name: string;
-  sets: [ExerciseSet];
+  sets: ExerciseSet[];
 }
 
 export interface ExerciseSet {
@@ -20,10 +20,17 @@ export interface ExerciseSet {
   failed: boolean;
 }
 
-export function NewWorkout(date: string): WorkoutDay {
+export function NewWorkoutDay(date: string): WorkoutDay {
   // TODO: validate that it's a valid ISODate
   return {
     date,
     exercises: [],
   }
+}
+
+export function NewExercise(name: string): Exercise {
+  return {
+    exercise_name: name,
+    sets: [],
+  };
 }

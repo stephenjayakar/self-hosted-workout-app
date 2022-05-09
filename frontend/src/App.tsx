@@ -23,7 +23,7 @@ export default function App() {
 
   const handleCreateNewWorkout = (e: any) => {
     e.preventDefault();
-    insertWorkout(models.NewWorkout(newWorkoutDate));
+    insertWorkout(models.NewWorkoutDay(newWorkoutDate));
     setNewWorkoutDate("");
   };
 
