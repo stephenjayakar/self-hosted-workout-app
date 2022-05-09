@@ -29,28 +29,30 @@ export default function App() {
 
   return (
     <main>
-      <h1>Workouts</h1>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={8}>
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-              placeholder="YYYY-MM-DD"
-              type="date"
-              onChange={handleDateChange}
-              fullWidth
-            />
+      <div className="inner">
+        <h1>Workouts</h1>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={8}>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                placeholder="YYYY-MM-DD"
+                type="date"
+                onChange={handleDateChange}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <Button onClick={handleCreateNewWorkout}>Create workout</Button>
+            </Grid>
           </Grid>
-          <Grid item xs={4}>
-            <Button onClick={handleCreateNewWorkout}>Create workout</Button>
-          </Grid>
-        </Grid>
-      </Box>
+        </Box>
 
-      {workouts.map((workout) => (
-        <WorkoutCard key={workout.date} workout={workout} />
-      ))}
+        {workouts.map((workout) => (
+          <WorkoutCard key={workout.date} workout={workout} />
+        ))}
+      </div>
     </main>
   );
 }

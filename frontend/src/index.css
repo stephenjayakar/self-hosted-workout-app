@@ -3,6 +3,12 @@
 main {
   width: min(500px, 95vw);
   margin: 0 auto;
+  background-color: #FAF9F6;
+}
+
+.inner {
+  margin-left: 24px;
+  margin-right: 24px;
 }
 
 .WorkoutTable {
