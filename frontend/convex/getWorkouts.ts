@@ -1,4 +1,4 @@
-import { query } from "convex-dev/server";
+import { query } from './_generated/server';
 import { WorkoutConvexResponse } from '../src/models';
 
 export default query(async ({ db }): Promise<[WorkoutConvexResponse]> => {

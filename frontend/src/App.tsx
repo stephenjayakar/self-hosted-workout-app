@@ -1,4 +1,4 @@
-import { useQuery, useMutation } from "../convex/_generated";
+import { useQuery, useMutation } from "../convex/_generated/react";
 
 import { useState } from "react";
 

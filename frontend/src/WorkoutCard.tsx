@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useMutation } from "../convex/_generated";
+import { useMutation } from "../convex/_generated/react";
 
 import {
   Button,
