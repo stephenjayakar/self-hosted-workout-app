@@ -67,7 +67,7 @@ export default function WorkoutCard(props: {
         <div className="WorkoutTable">
           <WorkoutTable workout={workout} />
           <h2>Add exercise</h2>
-          <AddExerciseForm />
+          <AddExerciseForm workout={workout} />
         </div>
       ) : (
         <div />
@@ -100,6 +100,10 @@ function WorkoutTable(props: { workout: WorkoutDay }) {
                     <TableCell align="right">meow</TableCell>
                   </TableRow>
                 ))}
+                <AddSetButton
+                  workout={workout}
+                  associatedExercise={e.exercise_name}
+                />
               </TableBody>
             </Table>
           </TableContainer>
@@ -109,12 +113,11 @@ function WorkoutTable(props: { workout: WorkoutDay }) {
   );
 }
 
-// TODO: add a mutation that allows us to insert a new workout per day
-
-// also, figure out how to handle that type of mutation vs. making an inner-workout
-// modification
-function AddExerciseForm(props: any) {
+function AddExerciseForm(props: { workout: WorkoutDay }) {
   const [exerciseName, setExerciseName] = useState("");
+
+  const updateWorkout = useMutation("updateWorkout");
+
   return (
     <>
       <Input
@@ -124,12 +127,52 @@ function AddExerciseForm(props: any) {
       />
       <Button
         onClick={() => {
-          // Mutation here.
-          console.log(exerciseName);
+          props.workout.exercises.push({
+            exercise_name: exerciseName,
+            sets: [],
+          });
+          setExerciseName("");
+          updateWorkout(props.workout);
         }}
       >
         Add
       </Button>
     </>
+  );
+}
+
+// TODO: implicitly assumes there is only one exercise_name a workout day. Oops
+function AddSetButton(props: {
+  workout: WorkoutDay;
+  associatedExercise: string;
+}) {
+  // TODO: do we redefine this? this is cracked
+  const updateWorkout = useMutation("updateWorkout");
+
+  return (
+    <Button
+      onClick={() => {
+        // Find the exercise we're modifying
+        // TODO: do better Stephen. Either make this a helper
+        // on the workout object or make this a specific
+        // mutation or honestly I have no idea.
+
+        // We could also preseed which index this is but honestly this is stupid.
+        for (var exercise of props.workout.exercises) {
+          if (exercise.exercise_name === props.associatedExercise) {
+            exercise.sets.push({
+              weight: 0,
+              reps: 0,
+              failed: false,
+            });
+            updateWorkout(props.workout);
+            console.log(exercise);
+            break;
+          }
+        }
+      }}
+    >
+      Add Set
+    </Button>
   );
 }
