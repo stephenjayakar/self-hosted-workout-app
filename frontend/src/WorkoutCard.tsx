@@ -78,6 +78,7 @@ export default function WorkoutCard(props: {
 
 function WorkoutTable(props: { workout: WorkoutDay }) {
   const workout: WorkoutDay = props.workout;
+  const updateWorkout = useMutation("updateWorkout");
   return (
     <>
       {workout.exercises.map((e) => (
@@ -95,7 +96,23 @@ function WorkoutTable(props: { workout: WorkoutDay }) {
                 {e.sets.map((s, i) => (
                   <TableRow key={e.exercise_name + i}>
                     <TableCell align="right">
-                      <Input defaultValue={s.weight + "x" + s.reps} />
+                      <Input
+                        onChange={(e) => {
+                          const newValue = e.target.value;
+                          // TODO: This is sketchy as fuck
+                          try {
+                            const [weight, reps] = newValue.split("x");
+                            if (weight && reps) {
+                              s.weight = parseInt(weight);
+                              s.reps = parseInt(reps);
+                              updateWorkout(workout);
+                            }
+                          } catch (e) {
+                            console.log(e);
+                          }
+                        }}
+                        defaultValue={s.weight + "x" + s.reps}
+                      />
                     </TableCell>
                     <TableCell align="right">meow</TableCell>
                   </TableRow>
@@ -131,12 +148,16 @@ function AddExerciseForm(props: { workout: WorkoutDay }) {
       />
       <Button
         onClick={() => {
-          props.workout.exercises.push({
-            exercise_name: exerciseName,
-            sets: [],
-          });
-          setExerciseName("");
-          updateWorkout(props.workout);
+          if (exerciseName === "") {
+            alert("Can't create an empty exercise name");
+          } else {
+            props.workout.exercises.push({
+              exercise_name: exerciseName,
+              sets: [],
+            });
+            setExerciseName("");
+            updateWorkout(props.workout);
+          }
         }}
       >
         Add
