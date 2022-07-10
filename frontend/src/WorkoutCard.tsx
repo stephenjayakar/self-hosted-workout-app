@@ -106,6 +106,10 @@ function WorkoutTable(props: { workout: WorkoutDay }) {
               workout={workout}
               associatedExercise={e.exercise_name}
             />
+            <RemoveLastSetButton
+              workout={workout}
+              associatedExercise={e.exercise_name}
+            />
           </TableContainer>
         </div>
       ))}
@@ -172,6 +176,30 @@ function AddSetButton(props: {
       }}
     >
       Add Set
+    </Button>
+  );
+}
+
+function RemoveLastSetButton(props: {
+  workout: WorkoutDay;
+  associatedExercise: string;
+}) {
+  const updateWorkout = useMutation("updateWorkout");
+
+  return (
+    <Button
+      color="error"
+      onClick={() => {
+        for (var exercise of props.workout.exercises) {
+          if (exercise.exercise_name === props.associatedExercise) {
+            exercise.sets.pop();
+            updateWorkout(props.workout);
+            break;
+          }
+        }
+      }}
+    >
+      Remove Last Set
     </Button>
   );
 }
