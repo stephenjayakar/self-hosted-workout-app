@@ -81,7 +81,7 @@ function WorkoutTable(props: { workout: WorkoutDay }) {
   return (
     <>
       {workout.exercises.map((e) => (
-        <>
+        <div key={workout.date + e.exercise_name}>
           <h1>{e.exercise_name}</h1>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 200 }} aria-label="customized table">
@@ -100,14 +100,14 @@ function WorkoutTable(props: { workout: WorkoutDay }) {
                     <TableCell align="right">meow</TableCell>
                   </TableRow>
                 ))}
-                <AddSetButton
-                  workout={workout}
-                  associatedExercise={e.exercise_name}
-                />
               </TableBody>
             </Table>
+            <AddSetButton
+              workout={workout}
+              associatedExercise={e.exercise_name}
+            />
           </TableContainer>
-        </>
+        </div>
       ))}
     </>
   );
@@ -166,7 +166,6 @@ function AddSetButton(props: {
               failed: false,
             });
             updateWorkout(props.workout);
-            console.log(exercise);
             break;
           }
         }
