@@ -34,3 +34,7 @@ export function NewExercise(name: string): Exercise {
     sets: [],
   };
 }
+
+export function findExerciseIndex(workout: WorkoutDay, exerciseName: string): number {
+  return workout.exercises.findIndex((e) => e.exercise_name === exerciseName);
+}

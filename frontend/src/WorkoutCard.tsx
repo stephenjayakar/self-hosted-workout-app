@@ -12,12 +12,18 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  TextField,
   Paper,
 } from "@mui/material";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import { WorkoutDay, WorkoutConvexResponse } from "./models";
+import {
+  ExerciseSet,
+  WorkoutDay,
+  WorkoutConvexResponse,
+  findExerciseIndex,
+} from "./models";
 
 // Component states:
 // - Toggling showing the workout information
@@ -79,59 +85,118 @@ export default function WorkoutCard(props: {
 function WorkoutTable(props: { workout: WorkoutDay }) {
   const workout: WorkoutDay = props.workout;
   const updateWorkout = useMutation("updateWorkout");
+  const [showBulkPaste, setShowBulkPaste] = useState(false);
+
   return (
     <>
       {workout.exercises.map((e) => (
         <div key={workout.date + e.exercise_name}>
           <h1>{e.exercise_name}</h1>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 200 }} aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <TableCell align="right">WeightxReps</TableCell>
-                  <TableCell align="right">Blank for now</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {e.sets.map((s, i) => (
-                  <TableRow key={e.exercise_name + i}>
-                    <TableCell align="right">
-                      <Input
-                        onChange={(e) => {
-                          const newValue = e.target.value;
-                          // TODO: This is sketchy as fuck
-                          try {
-                            const [weight, reps] = newValue.split("x");
-                            if (weight && reps) {
-                              s.weight = parseInt(weight);
-                              s.reps = parseInt(reps);
-                              updateWorkout(workout);
-                            }
-                          } catch (e) {
-                            console.log(e);
-                          }
-                        }}
-                        defaultValue={s.weight + "x" + s.reps}
-                      />
-                    </TableCell>
-                    <TableCell align="right">meow</TableCell>
+          <Button
+            onClick={() => {
+              setShowBulkPaste(!showBulkPaste);
+            }}
+          >
+            Toggle Bulk Paste
+          </Button>
+          {showBulkPaste ? (
+            <BulkPasteComponent
+              key={workout.date + e.exercise_name + 'bulk_paste'}
+              workout={workout}
+              associatedExercise={e.exercise_name}
+            />
+          ) : (
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 200 }} aria-label="customized table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="right">WeightxReps</TableCell>
+                    <TableCell align="right">Blank for now</TableCell>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-            <AddSetButton
-              workout={workout}
-              associatedExercise={e.exercise_name}
-            />
-            <RemoveLastSetButton
-              workout={workout}
-              associatedExercise={e.exercise_name}
-            />
-          </TableContainer>
+                </TableHead>
+                <TableBody>
+                  {e.sets.map((s, i) => (
+                    <TableRow key={e.exercise_name + i}>
+                      <TableCell align="right">
+                        <Input
+                          onChange={(e) => {
+                            const newValue = e.target.value;
+                            // TODO: This is sketchy as fuck
+                            try {
+                              const [weight, reps] = newValue.split("x");
+                              if (weight && reps) {
+                                s.weight = parseInt(weight);
+                                s.reps = parseInt(reps);
+                                updateWorkout(workout);
+                              }
+                            } catch (e) {
+                              console.log(e);
+                            }
+                          }}
+                          defaultValue={s.weight + "x" + s.reps}
+                        />
+                      </TableCell>
+                      <TableCell align="right">meow</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+              <AddSetButton
+                workout={workout}
+                associatedExercise={e.exercise_name}
+              />
+              <RemoveLastSetButton
+                workout={workout}
+                associatedExercise={e.exercise_name}
+              />
+            </TableContainer>
+          )}
         </div>
       ))}
     </>
   );
+}
+
+function BulkPasteComponent(props: {workout: WorkoutDay, associatedExercise: string }) {
+  const [bulkPasteValue, setBulkPasteValue] = useState("");
+  // TODO: ugh. stop using the whole document mutation
+  const updateWorkout = useMutation("updateWorkout");
+  return (
+    <>
+      <TextField
+        multiline
+        onChange={(e) => {
+          setBulkPasteValue(e.target.value);
+        }}
+      />
+      <Button
+        onClick={() => {
+          const parsed = parseBulkPaste(bulkPasteValue);
+          const exerciseIndex = findExerciseIndex(props.workout, props.associatedExercise);
+          props.workout.exercises[exerciseIndex].sets = parsed
+          updateWorkout(props.workout);
+        }}
+      >
+        Submit
+      </Button>
+    </>
+  );
+}
+
+function parseBulkPaste(value: string): ExerciseSet[] {
+  const lines = value.split("\n");
+  const parsed = lines.map((l) => {
+    const start = l.indexOf("- ");
+    const restOf = l.substring(start + 1);
+    // TODO: I should abstract the number x number logic and make it more robust
+    const [weightStr, repsStr] = restOf.split("x");
+    return {
+      weight: parseInt(weightStr),
+      reps: parseInt(repsStr),
+      failed: false,
+    };
+  });
+  return parsed;
 }
 
 function AddExerciseForm(props: { workout: WorkoutDay }) {
@@ -183,18 +248,16 @@ function AddSetButton(props: {
         // mutation or honestly I have no idea.
 
         // We could also preseed which index this is but honestly this is stupid.
-        for (var exercise of props.workout.exercises) {
-          if (exercise.exercise_name === props.associatedExercise) {
-            exercise.sets.push({
-              weight: 0,
-              reps: 0,
-              failed: false,
-            });
-            updateWorkout(props.workout);
-            break;
-          }
+        const index = findExerciseIndex(props.workout, props.associatedExercise);
+        const exercise = props.workout.exercises[index];
+        exercise.sets.push({
+          weight: 0,
+          reps: 0,
+          failed: false,
+        });
+        updateWorkout(props.workout);
         }
-      }}
+      }
     >
       Add Set
     </Button>
